@@ -1,0 +1,53 @@
+:root{--bg:#f7f8f5;--ink:#26332f;--mut:#748079;--card:#fff;--line:#e5e9e3;--acc:#628d79;--hi:#f8e9a9;--ok:#4f8060;--warn:#a77a3e;--fs:17px;color-scheme:light}
+:root[data-theme=dark]{--bg:#151c19;--ink:#e6eee8;--mut:#a2afa6;--card:#202a25;--line:#35423a;--acc:#8fc4a5;--hi:#584d2c;--ok:#92d2a3;--warn:#e2bd7b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:var(--fs)/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.app{max-width:680px;margin:0 auto;min-height:100dvh;padding:0 0 max(24px,env(safe-area-inset-bottom))}
+header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(18px + env(safe-area-inset-top)) 22px 16px;background:var(--bg)}
+header h1{margin:0;font:700 1.3rem/1.25 Georgia,"Noto Serif",serif;letter-spacing:.01em}
+header p{margin:5px 0 0;color:var(--mut);font-size:.82rem}
+.menu-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--card)}
+.menu-toggle span{display:block;width:17px;height:2px;border-radius:3px;background:var(--ink)}
+.menu-backdrop{position:fixed;z-index:5;inset:0;background:#18231d55}
+.menu{position:absolute;top:calc(12px + env(safe-area-inset-top));right:max(14px,calc((100vw - 640px)/2));display:flex;flex-direction:column;gap:4px;width:min(280px,calc(100vw - 28px));padding:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 48px #26332f26}
+.menu-label{margin:4px 10px 6px;color:var(--mut);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.menu button{min-height:46px;padding:10px 12px;text-align:left;border:0;border-radius:11px;background:transparent}
+.menu button.on{background:color-mix(in srgb,var(--acc) 13%,var(--card));color:var(--acc);font-weight:700}
+main{padding:8px 18px 24px}
+.banner{margin:6px 18px 0;padding:11px 14px;border-left:3px solid var(--acc);border-radius:0 10px 10px 0;background:var(--card);font-size:.9rem}
+.pagebar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 16px}
+.pagebar div{min-width:0;text-align:center;display:flex;flex-direction:column}
+.pagebar strong{font:700 1rem/1.3 Georgia,"Noto Serif",serif}
+.pagebar small{color:var(--mut);font-size:.78rem}
+.pagebar button{width:42px;height:42px;border:1px solid var(--line);background:var(--card);border-radius:50%;font-size:1.5rem;color:var(--acc)}
+.pagebar button:disabled{opacity:.3}
+.page{transform-origin:center center}
+.page.fwd{animation:turn-up .36s cubic-bezier(.2,.75,.25,1)}
+.page.back{animation:turn-down .36s cubic-bezier(.2,.75,.25,1)}
+@keyframes turn-up{from{opacity:.3;transform:translateY(13%) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes turn-down{from{opacity:.3;transform:translateY(-13%) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (prefers-reduced-motion:reduce){.page.fwd,.page.back{animation:none}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px;margin-bottom:12px;box-shadow:0 3px 12px #27352e08}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--mut)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}
+.item h3{margin:7px 0;font:700 1.08rem/1.38 Georgia,"Noto Serif",serif}
+.stmt{margin:6px 0;font-family:Georgia,"Noto Serif",serif}
+mark{background:var(--hi);color:inherit;padding:0 2px;border-radius:3px}
+.recall{margin:8px 0;padding-left:20px;font-size:.9rem}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.link{background:none;border:0;color:var(--acc);padding:7px 3px;min-height:42px;font-size:.9rem;font-weight:650}
+.eng{border-top:1px dashed var(--line);margin-top:5px;padding-top:7px;font-size:.88rem}.eng p{margin:5px 0}
+.src{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem}.src a{color:var(--acc);padding:5px 0}
+.stamp{color:var(--mut);font-size:.76rem;text-align:center;margin:18px 0}
+.empty{text-align:center;padding:42px 12px;color:var(--mut)}.empty h2{color:var(--ink);font:700 1.2rem Georgia,"Noto Serif",serif}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:12px;padding:12px 17px;min-height:46px;font-weight:650}
+:root[data-theme=dark] .btn{color:#142019}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn:disabled{opacity:.4}
+.inp{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--ink);font:inherit;margin:6px 0}
+.list{display:flex;flex-direction:column;gap:9px}
+.rowbtn{display:flex;flex-direction:column;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;min-height:52px;text-align:left}
+.rowbtn small{color:var(--mut)}
+.settings label{display:block;margin:12px 0}.settings h2{font:700 1.1rem Georgia,"Noto Serif",serif;margin:22px 0 7px}.note{font-size:.82rem;color:var(--mut)}
+@media(max-width:480px){header{padding-right:16px;padding-left:16px}main{padding-right:12px;padding-left:12px}.item{padding:14px;border-radius:14px}.meta{font-size:.68rem}}
