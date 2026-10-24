@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
-  base: './',
+  base: process.env.VITE_BASE || './',
   plugins: [react(), VitePWA({
     registerType: 'autoUpdate',
     manifest: { name: 'Exam Affairs Daily', short_name: 'ExamAffairs', description: 'Verified daily current affairs for Indian competitive exams',

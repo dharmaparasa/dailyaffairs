@@ -34,4 +34,11 @@ Model output must parse as JSON, carry search-grounding metadata, and each item 
 App shell and all saved editions, bookmarks and search work offline. Fetching, key testing and source links need a connection.
 
 ## Deploy
-`npm run build`, then upload `dist/` to Netlify, Vercel, Cloudflare Pages or GitHub Pages (HTTPS needed for install; paths are relative).
+### GitHub Pages
+The included GitHub Actions workflow runs the tests, builds the app with the repository's Pages base path, and deploys `dist/` whenever changes are pushed to `main` (or when run manually).
+
+1. In the repository, open **Settings > Pages** and set the build and deployment source to **GitHub Actions**.
+2. Push to `main`, or run **Deploy to GitHub Pages** from the **Actions** tab.
+3. Open the deployment URL shown in the workflow. The workflow also publishes a `404.html` fallback for static hosting.
+
+The app uses a repository-scoped path on GitHub Pages and relative paths for local and other static-host builds. GitHub Pages serves the app over HTTPS, which is required for PWA installation. For Netlify, Vercel, or Cloudflare Pages, run `npm run build` and deploy the generated `dist/` directory.
